@@ -1,0 +1,55 @@
+type Product {
+    id: ID! @id
+    name: String!
+    code: Int!
+    cost: Float!
+    description: String!
+    inventory_on_hand: Int!
+    proeduct_type: String!
+    category: String!
+    pushed_product: Boolean!
+    callback: String!
+}
+
+type Order {
+    id: ID! @id
+    customer_name: String!
+    customer_email: String!
+    customer_phone: [Phone!]
+    shipping_address: [Shipping!]
+    billing_address: [Billing!]
+    purchase_products: [Purchase!]
+}
+
+type Phone {
+    id: ID! @id
+    number: Int!
+    type: String!
+    contact: Boolean!
+    order_id: Order!
+}
+
+type Shipping {
+    id: ID! @id
+    street: String!
+    city: String!
+    state: String!
+    zipcode: Int!
+    order_id: Order!
+}
+
+type Billing {
+    id: ID! @id
+    street: String!
+    city: String!
+    state: String!
+    zipcode: Int!
+    order_id: Order!
+}
+
+type Purchase {
+    id: ID! @id
+    code: Int!
+    quantity: Int!
+    order_id: Order!
+}
