@@ -63,6 +63,9 @@ type Purchase {
 type Query {
     info: String
 
+    products: [Product!]
+    product(id: String!): Product!
+
     order(id: String!): Order!
 }
 
