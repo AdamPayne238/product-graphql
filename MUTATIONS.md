@@ -93,3 +93,28 @@
 #     }
 #   }
 # }
+
+#WORKING
+# mutation{
+#   createProduct(
+#     name: "Apple",
+#     code: 1000,
+#     cost: 0.55,
+#     description: "Delicious red apple",
+#     inventory_on_hand: 88,
+#     product_type: "fruit",
+#     category: "food",
+#     pushed_product: false,
+#     callback: "???"
+#   ){
+#     id
+#     code
+#     cost
+#     description
+#     inventory_on_hand
+#     product_type
+#     category
+#     pushed_product
+#     callback
+#   }
+# }

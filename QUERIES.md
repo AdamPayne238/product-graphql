@@ -1,5 +1,10 @@
 #WORKING
 # query{
+#   info
+# }
+
+#WORKING
+# query{
 #   order(
 #     id: "ckfen45eqlhyv0a26hwsw1ayb"
 #   ){
@@ -26,5 +31,21 @@
 #       code
 #       quantity
 #     }
+#   }
+# }
+
+#WORKING
+# query{
+#   products{
+#     id
+#     name
+#     code
+#     cost
+#     description
+#     inventory_on_hand
+#     product_type
+#     category
+#     pushed_product
+#     callback
 #   }
 # }
