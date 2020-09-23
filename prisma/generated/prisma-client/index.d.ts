@@ -359,8 +359,8 @@ export type ProductOrderByInput =
   | "description_DESC"
   | "inventory_on_hand_ASC"
   | "inventory_on_hand_DESC"
-  | "proeduct_type_ASC"
-  | "proeduct_type_DESC"
+  | "product_type_ASC"
+  | "product_type_DESC"
   | "category_ASC"
   | "category_DESC"
   | "pushed_product_ASC"
@@ -898,7 +898,7 @@ export interface ProductCreateInput {
   cost: Float;
   description: String;
   inventory_on_hand: Int;
-  proeduct_type: String;
+  product_type: String;
   category: String;
   pushed_product: Boolean;
   callback: String;
@@ -1240,7 +1240,7 @@ export interface ProductUpdateInput {
   cost?: Maybe<Float>;
   description?: Maybe<String>;
   inventory_on_hand?: Maybe<Int>;
-  proeduct_type?: Maybe<String>;
+  product_type?: Maybe<String>;
   category?: Maybe<String>;
   pushed_product?: Maybe<Boolean>;
   callback?: Maybe<String>;
@@ -1553,20 +1553,20 @@ export interface ProductWhereInput {
   inventory_on_hand_lte?: Maybe<Int>;
   inventory_on_hand_gt?: Maybe<Int>;
   inventory_on_hand_gte?: Maybe<Int>;
-  proeduct_type?: Maybe<String>;
-  proeduct_type_not?: Maybe<String>;
-  proeduct_type_in?: Maybe<String[] | String>;
-  proeduct_type_not_in?: Maybe<String[] | String>;
-  proeduct_type_lt?: Maybe<String>;
-  proeduct_type_lte?: Maybe<String>;
-  proeduct_type_gt?: Maybe<String>;
-  proeduct_type_gte?: Maybe<String>;
-  proeduct_type_contains?: Maybe<String>;
-  proeduct_type_not_contains?: Maybe<String>;
-  proeduct_type_starts_with?: Maybe<String>;
-  proeduct_type_not_starts_with?: Maybe<String>;
-  proeduct_type_ends_with?: Maybe<String>;
-  proeduct_type_not_ends_with?: Maybe<String>;
+  product_type?: Maybe<String>;
+  product_type_not?: Maybe<String>;
+  product_type_in?: Maybe<String[] | String>;
+  product_type_not_in?: Maybe<String[] | String>;
+  product_type_lt?: Maybe<String>;
+  product_type_lte?: Maybe<String>;
+  product_type_gt?: Maybe<String>;
+  product_type_gte?: Maybe<String>;
+  product_type_contains?: Maybe<String>;
+  product_type_not_contains?: Maybe<String>;
+  product_type_starts_with?: Maybe<String>;
+  product_type_not_starts_with?: Maybe<String>;
+  product_type_ends_with?: Maybe<String>;
+  product_type_not_ends_with?: Maybe<String>;
   category?: Maybe<String>;
   category_not?: Maybe<String>;
   category_in?: Maybe<String[] | String>;
@@ -1628,7 +1628,7 @@ export interface ProductUpdateManyMutationInput {
   cost?: Maybe<Float>;
   description?: Maybe<String>;
   inventory_on_hand?: Maybe<Int>;
-  proeduct_type?: Maybe<String>;
+  product_type?: Maybe<String>;
   category?: Maybe<String>;
   pushed_product?: Maybe<Boolean>;
   callback?: Maybe<String>;
@@ -2015,7 +2015,7 @@ export interface Product {
   cost: Float;
   description: String;
   inventory_on_hand: Int;
-  proeduct_type: String;
+  product_type: String;
   category: String;
   pushed_product: Boolean;
   callback: String;
@@ -2028,7 +2028,7 @@ export interface ProductPromise extends Promise<Product>, Fragmentable {
   cost: () => Promise<Float>;
   description: () => Promise<String>;
   inventory_on_hand: () => Promise<Int>;
-  proeduct_type: () => Promise<String>;
+  product_type: () => Promise<String>;
   category: () => Promise<String>;
   pushed_product: () => Promise<Boolean>;
   callback: () => Promise<String>;
@@ -2043,7 +2043,7 @@ export interface ProductSubscription
   cost: () => Promise<AsyncIterator<Float>>;
   description: () => Promise<AsyncIterator<String>>;
   inventory_on_hand: () => Promise<AsyncIterator<Int>>;
-  proeduct_type: () => Promise<AsyncIterator<String>>;
+  product_type: () => Promise<AsyncIterator<String>>;
   category: () => Promise<AsyncIterator<String>>;
   pushed_product: () => Promise<AsyncIterator<Boolean>>;
   callback: () => Promise<AsyncIterator<String>>;
@@ -2058,7 +2058,7 @@ export interface ProductNullablePromise
   cost: () => Promise<Float>;
   description: () => Promise<String>;
   inventory_on_hand: () => Promise<Int>;
-  proeduct_type: () => Promise<String>;
+  product_type: () => Promise<String>;
   category: () => Promise<String>;
   pushed_product: () => Promise<Boolean>;
   callback: () => Promise<String>;
@@ -2453,7 +2453,7 @@ export interface ProductPreviousValues {
   cost: Float;
   description: String;
   inventory_on_hand: Int;
-  proeduct_type: String;
+  product_type: String;
   category: String;
   pushed_product: Boolean;
   callback: String;
@@ -2468,7 +2468,7 @@ export interface ProductPreviousValuesPromise
   cost: () => Promise<Float>;
   description: () => Promise<String>;
   inventory_on_hand: () => Promise<Int>;
-  proeduct_type: () => Promise<String>;
+  product_type: () => Promise<String>;
   category: () => Promise<String>;
   pushed_product: () => Promise<Boolean>;
   callback: () => Promise<String>;
@@ -2483,7 +2483,7 @@ export interface ProductPreviousValuesSubscription
   cost: () => Promise<AsyncIterator<Float>>;
   description: () => Promise<AsyncIterator<String>>;
   inventory_on_hand: () => Promise<AsyncIterator<Int>>;
-  proeduct_type: () => Promise<AsyncIterator<String>>;
+  product_type: () => Promise<AsyncIterator<String>>;
   category: () => Promise<AsyncIterator<String>>;
   pushed_product: () => Promise<AsyncIterator<Boolean>>;
   callback: () => Promise<AsyncIterator<String>>;

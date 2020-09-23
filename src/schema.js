@@ -11,7 +11,7 @@ type Product {
     cost: Float!
     description: String!
     inventory_on_hand: Int!
-    proeduct_type: String!
+    product_type: String!
     category: String!
     pushed_product: Boolean!
     callback: String!
@@ -77,7 +77,7 @@ type Mutation {
         cost: Float!
         description: String!
         inventory_on_hand: Int!
-        proeduct_type: String!
+        product_type: String!
         category: String!
         pushed_product: Boolean!
         callback: String!

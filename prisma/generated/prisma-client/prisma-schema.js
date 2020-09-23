@@ -878,7 +878,7 @@ type Product {
   cost: Float!
   description: String!
   inventory_on_hand: Int!
-  proeduct_type: String!
+  product_type: String!
   category: String!
   pushed_product: Boolean!
   callback: String!
@@ -897,7 +897,7 @@ input ProductCreateInput {
   cost: Float!
   description: String!
   inventory_on_hand: Int!
-  proeduct_type: String!
+  product_type: String!
   category: String!
   pushed_product: Boolean!
   callback: String!
@@ -921,8 +921,8 @@ enum ProductOrderByInput {
   description_DESC
   inventory_on_hand_ASC
   inventory_on_hand_DESC
-  proeduct_type_ASC
-  proeduct_type_DESC
+  product_type_ASC
+  product_type_DESC
   category_ASC
   category_DESC
   pushed_product_ASC
@@ -938,7 +938,7 @@ type ProductPreviousValues {
   cost: Float!
   description: String!
   inventory_on_hand: Int!
-  proeduct_type: String!
+  product_type: String!
   category: String!
   pushed_product: Boolean!
   callback: String!
@@ -968,7 +968,7 @@ input ProductUpdateInput {
   cost: Float
   description: String
   inventory_on_hand: Int
-  proeduct_type: String
+  product_type: String
   category: String
   pushed_product: Boolean
   callback: String
@@ -980,7 +980,7 @@ input ProductUpdateManyMutationInput {
   cost: Float
   description: String
   inventory_on_hand: Int
-  proeduct_type: String
+  product_type: String
   category: String
   pushed_product: Boolean
   callback: String
@@ -1053,20 +1053,20 @@ input ProductWhereInput {
   inventory_on_hand_lte: Int
   inventory_on_hand_gt: Int
   inventory_on_hand_gte: Int
-  proeduct_type: String
-  proeduct_type_not: String
-  proeduct_type_in: [String!]
-  proeduct_type_not_in: [String!]
-  proeduct_type_lt: String
-  proeduct_type_lte: String
-  proeduct_type_gt: String
-  proeduct_type_gte: String
-  proeduct_type_contains: String
-  proeduct_type_not_contains: String
-  proeduct_type_starts_with: String
-  proeduct_type_not_starts_with: String
-  proeduct_type_ends_with: String
-  proeduct_type_not_ends_with: String
+  product_type: String
+  product_type_not: String
+  product_type_in: [String!]
+  product_type_not_in: [String!]
+  product_type_lt: String
+  product_type_lte: String
+  product_type_gt: String
+  product_type_gte: String
+  product_type_contains: String
+  product_type_not_contains: String
+  product_type_starts_with: String
+  product_type_not_starts_with: String
+  product_type_ends_with: String
+  product_type_not_ends_with: String
   category: String
   category_not: String
   category_in: [String!]

@@ -8,7 +8,7 @@ function createProduct(_parent, args, context){
         cost: args.cost,
         description: args.description,
         inventory_on_hand: args.inventory_on_hand,
-        proeduct_type: args.proeduct_type,
+        product_type: args.product_type,
         category: args.category,
         pushed_product: args.pushed_product,
         callback: args.callback,
