@@ -3,7 +3,6 @@
 function createProduct(_parent, args, context){
 
     const res = context.prisma.createProduct({
-
         name: args.name,
         code: args.code,
         cost: args.cost,
@@ -14,7 +13,6 @@ function createProduct(_parent, args, context){
         pushed_product: args.pushed_product,
         callback: args.callback,
     })
-
     return res
 }
 
