@@ -22,7 +22,7 @@ function createOrder(_parent, args, context){
 
     const res = context.prisma.createOrder({
         customer_name: args.customer_name,
-        customer_email: args.customer_name
+        customer_email: args.customer_email
     })
     return res
 }
