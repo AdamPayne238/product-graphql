@@ -25,6 +25,7 @@ type Order {
     shipping_address: [Shipping!]
     billing_address: [Billing!]
     purchase_products: [Purchase!]
+    order_confirmation: [Complete!]
 }
 
 type Phone {
@@ -57,6 +58,12 @@ type Purchase {
     id: ID!
     code: Int!
     quantity: Int!
+    order_id: Order!
+}
+
+type Complete {
+    confirmation_code: ID!
+    order_total: Int!
     order_id: Order!
 }
 
@@ -116,6 +123,11 @@ type Mutation {
         quantity: Int!
         order_id: String!
     ): Purchase!
+
+    createComplete(
+        order_total: Int!
+        order_id: String!
+    ): Complete!
 
 }
 

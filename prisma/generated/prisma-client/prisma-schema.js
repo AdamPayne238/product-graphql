@@ -7,6 +7,10 @@ module.exports = {
   count: Int!
 }
 
+type AggregateComplete {
+  count: Int!
+}
+
 type AggregateOrder {
   count: Int!
 }
@@ -314,6 +318,175 @@ input BillingWhereUniqueInput {
   id: ID
 }
 
+type Complete {
+  confirmation_code: ID!
+  order_total: Int!
+  order_id: Order!
+}
+
+type CompleteConnection {
+  pageInfo: PageInfo!
+  edges: [CompleteEdge]!
+  aggregate: AggregateComplete!
+}
+
+input CompleteCreateInput {
+  confirmation_code: ID
+  order_total: Int!
+  order_id: OrderCreateOneWithoutOrder_confirmationInput!
+}
+
+input CompleteCreateManyWithoutOrder_idInput {
+  create: [CompleteCreateWithoutOrder_idInput!]
+  connect: [CompleteWhereUniqueInput!]
+}
+
+input CompleteCreateWithoutOrder_idInput {
+  confirmation_code: ID
+  order_total: Int!
+}
+
+type CompleteEdge {
+  node: Complete!
+  cursor: String!
+}
+
+enum CompleteOrderByInput {
+  confirmation_code_ASC
+  confirmation_code_DESC
+  order_total_ASC
+  order_total_DESC
+}
+
+type CompletePreviousValues {
+  confirmation_code: ID!
+  order_total: Int!
+}
+
+input CompleteScalarWhereInput {
+  confirmation_code: ID
+  confirmation_code_not: ID
+  confirmation_code_in: [ID!]
+  confirmation_code_not_in: [ID!]
+  confirmation_code_lt: ID
+  confirmation_code_lte: ID
+  confirmation_code_gt: ID
+  confirmation_code_gte: ID
+  confirmation_code_contains: ID
+  confirmation_code_not_contains: ID
+  confirmation_code_starts_with: ID
+  confirmation_code_not_starts_with: ID
+  confirmation_code_ends_with: ID
+  confirmation_code_not_ends_with: ID
+  order_total: Int
+  order_total_not: Int
+  order_total_in: [Int!]
+  order_total_not_in: [Int!]
+  order_total_lt: Int
+  order_total_lte: Int
+  order_total_gt: Int
+  order_total_gte: Int
+  AND: [CompleteScalarWhereInput!]
+  OR: [CompleteScalarWhereInput!]
+  NOT: [CompleteScalarWhereInput!]
+}
+
+type CompleteSubscriptionPayload {
+  mutation: MutationType!
+  node: Complete
+  updatedFields: [String!]
+  previousValues: CompletePreviousValues
+}
+
+input CompleteSubscriptionWhereInput {
+  mutation_in: [MutationType!]
+  updatedFields_contains: String
+  updatedFields_contains_every: [String!]
+  updatedFields_contains_some: [String!]
+  node: CompleteWhereInput
+  AND: [CompleteSubscriptionWhereInput!]
+  OR: [CompleteSubscriptionWhereInput!]
+  NOT: [CompleteSubscriptionWhereInput!]
+}
+
+input CompleteUpdateInput {
+  order_total: Int
+  order_id: OrderUpdateOneRequiredWithoutOrder_confirmationInput
+}
+
+input CompleteUpdateManyDataInput {
+  order_total: Int
+}
+
+input CompleteUpdateManyMutationInput {
+  order_total: Int
+}
+
+input CompleteUpdateManyWithoutOrder_idInput {
+  create: [CompleteCreateWithoutOrder_idInput!]
+  delete: [CompleteWhereUniqueInput!]
+  connect: [CompleteWhereUniqueInput!]
+  set: [CompleteWhereUniqueInput!]
+  disconnect: [CompleteWhereUniqueInput!]
+  update: [CompleteUpdateWithWhereUniqueWithoutOrder_idInput!]
+  upsert: [CompleteUpsertWithWhereUniqueWithoutOrder_idInput!]
+  deleteMany: [CompleteScalarWhereInput!]
+  updateMany: [CompleteUpdateManyWithWhereNestedInput!]
+}
+
+input CompleteUpdateManyWithWhereNestedInput {
+  where: CompleteScalarWhereInput!
+  data: CompleteUpdateManyDataInput!
+}
+
+input CompleteUpdateWithoutOrder_idDataInput {
+  order_total: Int
+}
+
+input CompleteUpdateWithWhereUniqueWithoutOrder_idInput {
+  where: CompleteWhereUniqueInput!
+  data: CompleteUpdateWithoutOrder_idDataInput!
+}
+
+input CompleteUpsertWithWhereUniqueWithoutOrder_idInput {
+  where: CompleteWhereUniqueInput!
+  update: CompleteUpdateWithoutOrder_idDataInput!
+  create: CompleteCreateWithoutOrder_idInput!
+}
+
+input CompleteWhereInput {
+  confirmation_code: ID
+  confirmation_code_not: ID
+  confirmation_code_in: [ID!]
+  confirmation_code_not_in: [ID!]
+  confirmation_code_lt: ID
+  confirmation_code_lte: ID
+  confirmation_code_gt: ID
+  confirmation_code_gte: ID
+  confirmation_code_contains: ID
+  confirmation_code_not_contains: ID
+  confirmation_code_starts_with: ID
+  confirmation_code_not_starts_with: ID
+  confirmation_code_ends_with: ID
+  confirmation_code_not_ends_with: ID
+  order_total: Int
+  order_total_not: Int
+  order_total_in: [Int!]
+  order_total_not_in: [Int!]
+  order_total_lt: Int
+  order_total_lte: Int
+  order_total_gt: Int
+  order_total_gte: Int
+  order_id: OrderWhereInput
+  AND: [CompleteWhereInput!]
+  OR: [CompleteWhereInput!]
+  NOT: [CompleteWhereInput!]
+}
+
+input CompleteWhereUniqueInput {
+  confirmation_code: ID
+}
+
 scalar Long
 
 type Mutation {
@@ -323,6 +496,12 @@ type Mutation {
   upsertBilling(where: BillingWhereUniqueInput!, create: BillingCreateInput!, update: BillingUpdateInput!): Billing!
   deleteBilling(where: BillingWhereUniqueInput!): Billing
   deleteManyBillings(where: BillingWhereInput): BatchPayload!
+  createComplete(data: CompleteCreateInput!): Complete!
+  updateComplete(data: CompleteUpdateInput!, where: CompleteWhereUniqueInput!): Complete
+  updateManyCompletes(data: CompleteUpdateManyMutationInput!, where: CompleteWhereInput): BatchPayload!
+  upsertComplete(where: CompleteWhereUniqueInput!, create: CompleteCreateInput!, update: CompleteUpdateInput!): Complete!
+  deleteComplete(where: CompleteWhereUniqueInput!): Complete
+  deleteManyCompletes(where: CompleteWhereInput): BatchPayload!
   createOrder(data: OrderCreateInput!): Order!
   updateOrder(data: OrderUpdateInput!, where: OrderWhereUniqueInput!): Order
   updateManyOrders(data: OrderUpdateManyMutationInput!, where: OrderWhereInput): BatchPayload!
@@ -373,6 +552,7 @@ type Order {
   shipping_address(where: ShippingWhereInput, orderBy: ShippingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Shipping!]
   billing_address(where: BillingWhereInput, orderBy: BillingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Billing!]
   purchase_products(where: PurchaseWhereInput, orderBy: PurchaseOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Purchase!]
+  order_confirmation(where: CompleteWhereInput, orderBy: CompleteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Complete!]
 }
 
 type OrderConnection {
@@ -389,6 +569,7 @@ input OrderCreateInput {
   shipping_address: ShippingCreateManyWithoutOrder_idInput
   billing_address: BillingCreateManyWithoutOrder_idInput
   purchase_products: PurchaseCreateManyWithoutOrder_idInput
+  order_confirmation: CompleteCreateManyWithoutOrder_idInput
 }
 
 input OrderCreateOneWithoutBilling_addressInput {
@@ -398,6 +579,11 @@ input OrderCreateOneWithoutBilling_addressInput {
 
 input OrderCreateOneWithoutCustomer_phoneInput {
   create: OrderCreateWithoutCustomer_phoneInput
+  connect: OrderWhereUniqueInput
+}
+
+input OrderCreateOneWithoutOrder_confirmationInput {
+  create: OrderCreateWithoutOrder_confirmationInput
   connect: OrderWhereUniqueInput
 }
 
@@ -418,12 +604,24 @@ input OrderCreateWithoutBilling_addressInput {
   customer_phone: PhoneCreateManyWithoutOrder_idInput
   shipping_address: ShippingCreateManyWithoutOrder_idInput
   purchase_products: PurchaseCreateManyWithoutOrder_idInput
+  order_confirmation: CompleteCreateManyWithoutOrder_idInput
 }
 
 input OrderCreateWithoutCustomer_phoneInput {
   id: ID
   customer_name: String!
   customer_email: String!
+  shipping_address: ShippingCreateManyWithoutOrder_idInput
+  billing_address: BillingCreateManyWithoutOrder_idInput
+  purchase_products: PurchaseCreateManyWithoutOrder_idInput
+  order_confirmation: CompleteCreateManyWithoutOrder_idInput
+}
+
+input OrderCreateWithoutOrder_confirmationInput {
+  id: ID
+  customer_name: String!
+  customer_email: String!
+  customer_phone: PhoneCreateManyWithoutOrder_idInput
   shipping_address: ShippingCreateManyWithoutOrder_idInput
   billing_address: BillingCreateManyWithoutOrder_idInput
   purchase_products: PurchaseCreateManyWithoutOrder_idInput
@@ -436,6 +634,7 @@ input OrderCreateWithoutPurchase_productsInput {
   customer_phone: PhoneCreateManyWithoutOrder_idInput
   shipping_address: ShippingCreateManyWithoutOrder_idInput
   billing_address: BillingCreateManyWithoutOrder_idInput
+  order_confirmation: CompleteCreateManyWithoutOrder_idInput
 }
 
 input OrderCreateWithoutShipping_addressInput {
@@ -445,6 +644,7 @@ input OrderCreateWithoutShipping_addressInput {
   customer_phone: PhoneCreateManyWithoutOrder_idInput
   billing_address: BillingCreateManyWithoutOrder_idInput
   purchase_products: PurchaseCreateManyWithoutOrder_idInput
+  order_confirmation: CompleteCreateManyWithoutOrder_idInput
 }
 
 type OrderEdge {
@@ -492,6 +692,7 @@ input OrderUpdateInput {
   shipping_address: ShippingUpdateManyWithoutOrder_idInput
   billing_address: BillingUpdateManyWithoutOrder_idInput
   purchase_products: PurchaseUpdateManyWithoutOrder_idInput
+  order_confirmation: CompleteUpdateManyWithoutOrder_idInput
 }
 
 input OrderUpdateManyMutationInput {
@@ -510,6 +711,13 @@ input OrderUpdateOneRequiredWithoutCustomer_phoneInput {
   create: OrderCreateWithoutCustomer_phoneInput
   update: OrderUpdateWithoutCustomer_phoneDataInput
   upsert: OrderUpsertWithoutCustomer_phoneInput
+  connect: OrderWhereUniqueInput
+}
+
+input OrderUpdateOneRequiredWithoutOrder_confirmationInput {
+  create: OrderCreateWithoutOrder_confirmationInput
+  update: OrderUpdateWithoutOrder_confirmationDataInput
+  upsert: OrderUpsertWithoutOrder_confirmationInput
   connect: OrderWhereUniqueInput
 }
 
@@ -533,11 +741,22 @@ input OrderUpdateWithoutBilling_addressDataInput {
   customer_phone: PhoneUpdateManyWithoutOrder_idInput
   shipping_address: ShippingUpdateManyWithoutOrder_idInput
   purchase_products: PurchaseUpdateManyWithoutOrder_idInput
+  order_confirmation: CompleteUpdateManyWithoutOrder_idInput
 }
 
 input OrderUpdateWithoutCustomer_phoneDataInput {
   customer_name: String
   customer_email: String
+  shipping_address: ShippingUpdateManyWithoutOrder_idInput
+  billing_address: BillingUpdateManyWithoutOrder_idInput
+  purchase_products: PurchaseUpdateManyWithoutOrder_idInput
+  order_confirmation: CompleteUpdateManyWithoutOrder_idInput
+}
+
+input OrderUpdateWithoutOrder_confirmationDataInput {
+  customer_name: String
+  customer_email: String
+  customer_phone: PhoneUpdateManyWithoutOrder_idInput
   shipping_address: ShippingUpdateManyWithoutOrder_idInput
   billing_address: BillingUpdateManyWithoutOrder_idInput
   purchase_products: PurchaseUpdateManyWithoutOrder_idInput
@@ -549,6 +768,7 @@ input OrderUpdateWithoutPurchase_productsDataInput {
   customer_phone: PhoneUpdateManyWithoutOrder_idInput
   shipping_address: ShippingUpdateManyWithoutOrder_idInput
   billing_address: BillingUpdateManyWithoutOrder_idInput
+  order_confirmation: CompleteUpdateManyWithoutOrder_idInput
 }
 
 input OrderUpdateWithoutShipping_addressDataInput {
@@ -557,6 +777,7 @@ input OrderUpdateWithoutShipping_addressDataInput {
   customer_phone: PhoneUpdateManyWithoutOrder_idInput
   billing_address: BillingUpdateManyWithoutOrder_idInput
   purchase_products: PurchaseUpdateManyWithoutOrder_idInput
+  order_confirmation: CompleteUpdateManyWithoutOrder_idInput
 }
 
 input OrderUpsertWithoutBilling_addressInput {
@@ -567,6 +788,11 @@ input OrderUpsertWithoutBilling_addressInput {
 input OrderUpsertWithoutCustomer_phoneInput {
   update: OrderUpdateWithoutCustomer_phoneDataInput!
   create: OrderCreateWithoutCustomer_phoneInput!
+}
+
+input OrderUpsertWithoutOrder_confirmationInput {
+  update: OrderUpdateWithoutOrder_confirmationDataInput!
+  create: OrderCreateWithoutOrder_confirmationInput!
 }
 
 input OrderUpsertWithoutPurchase_productsInput {
@@ -634,6 +860,9 @@ input OrderWhereInput {
   purchase_products_every: PurchaseWhereInput
   purchase_products_some: PurchaseWhereInput
   purchase_products_none: PurchaseWhereInput
+  order_confirmation_every: CompleteWhereInput
+  order_confirmation_some: CompleteWhereInput
+  order_confirmation_none: CompleteWhereInput
   AND: [OrderWhereInput!]
   OR: [OrderWhereInput!]
   NOT: [OrderWhereInput!]
@@ -1305,6 +1534,9 @@ type Query {
   billing(where: BillingWhereUniqueInput!): Billing
   billings(where: BillingWhereInput, orderBy: BillingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Billing]!
   billingsConnection(where: BillingWhereInput, orderBy: BillingOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): BillingConnection!
+  complete(where: CompleteWhereUniqueInput!): Complete
+  completes(where: CompleteWhereInput, orderBy: CompleteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Complete]!
+  completesConnection(where: CompleteWhereInput, orderBy: CompleteOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): CompleteConnection!
   order(where: OrderWhereUniqueInput!): Order
   orders(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): [Order]!
   ordersConnection(where: OrderWhereInput, orderBy: OrderOrderByInput, skip: Int, after: String, before: String, first: Int, last: Int): OrderConnection!
@@ -1608,6 +1840,7 @@ input ShippingWhereUniqueInput {
 
 type Subscription {
   billing(where: BillingSubscriptionWhereInput): BillingSubscriptionPayload
+  complete(where: CompleteSubscriptionWhereInput): CompleteSubscriptionPayload
   order(where: OrderSubscriptionWhereInput): OrderSubscriptionPayload
   phone(where: PhoneSubscriptionWhereInput): PhoneSubscriptionPayload
   product(where: ProductSubscriptionWhereInput): ProductSubscriptionPayload
