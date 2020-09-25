@@ -88,6 +88,18 @@ function createPurchase(_parent, args, context){
     return res
 }
 
+// Mutation Create Complete
+function createComplete(_parent, args, context){
+
+    const res = context.prisma.createComplete({
+        order_total: args.order_total,
+        order_id: {
+            connect: {id: args.order_id}
+        }
+    })
+    return res
+}
+
 
 
 module.exports = {
@@ -97,4 +109,5 @@ module.exports = {
     createShipping,
     createBilling,
     createPurchase,
+    createComplete,
 }

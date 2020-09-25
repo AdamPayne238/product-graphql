@@ -19,6 +19,7 @@ type Order {
     shipping_address: [Shipping!]
     billing_address: [Billing!]
     purchase_products: [Purchase!]
+    order_confirmation: [Complete!]
 }
 
 type Phone {
@@ -51,5 +52,11 @@ type Purchase {
     id: ID! @id
     code: Int!
     quantity: Int!
+    order_id: Order!
+}
+
+type Complete {
+    confirmation_code: ID! @id
+    order_total: Int!
     order_id: Order!
 }

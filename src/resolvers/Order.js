@@ -40,6 +40,13 @@ function purchase_products(_parent, args, context){
     return res
 }
 
+function order_confirmation(_parent, args, context){
+    const res = context.prisma.order({
+        id: _parent.id
+    }).order_confirmation()
+    return res
+}
+
 
 module.exports = {
     __resolveReference,
@@ -47,4 +54,5 @@ module.exports = {
     shipping_address,
     billing_address,
     purchase_products,
+    order_confirmation,
 }
