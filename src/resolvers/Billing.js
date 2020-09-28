@@ -1,5 +1,4 @@
 
-// order_id
 function order_id(_parent, args, context){
     const res = context.prisma.billing({
         id: _parent.id

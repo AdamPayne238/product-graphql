@@ -1,5 +1,5 @@
 
-
+// Mutation Create Product
 function createProduct(_parent, args, context){
 
     const res = context.prisma.createProduct({
@@ -99,7 +99,6 @@ function createComplete(_parent, args, context){
     })
     return res
 }
-
 
 
 module.exports = {

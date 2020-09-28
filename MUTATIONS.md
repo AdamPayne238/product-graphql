@@ -1,10 +1,8 @@
-# ORDER ID "ckfen45eqlhyv0a26hwsw1ayb"
 
-#WORKING
 # mutation{
 #   createOrder(
-#     customer_name: "first dude",
-#     customer_email: "first email"
+#     customer_name: "test name",
+#     customer_email: "test email"
 #   ){
 # 	id
 # 	customer_name
@@ -12,34 +10,32 @@
 #   }
 # }
 
-#WORKING
 # mutation{
 #   createPhone(
 #     number: 333334444,
 #     type: "mobile",
 #     contact: true,
-#     order_id: "ckfen45eqlhyv0a26hwsw1ayb"
+#     order_id: "ckfg1knm3yfci09992o68jw4y"
 #   ){
 #     id
 #     number
 #     type
 #     contact
 #     order_id{
-#				id
+# 				id
 #       customer_name
 #       customer_email
 #     }
 #   }
 # }
 
-#WORKING
 # mutation{
 #   createShipping(
-#     street: "3000 clarcona Rd",
-#     city: "Apopka",
-#     state: "Florida",
+#     street: "3000 South Rd",
+#     city: "Orange",
+#     state: "Texas",
 #     zipcode: 46033,
-#     order_id: "ckfen45eqlhyv0a26hwsw1ayb",
+#     order_id: "ckfg2nxewpwud0a26kk2eyhdc",
 #   ){
 #     id
 #     street
@@ -54,7 +50,6 @@
 #   }
 # }
 
-#WORKING
 # mutation{
 #   createBilling(
 #     street: "1516 Cool Creek Drive",
@@ -76,7 +71,6 @@
 #   }
 # }
 
-#WORKING
 # mutation{
 #   createPurchase(
 #     code: 1212,
@@ -94,7 +88,16 @@
 #   }
 # }
 
-#WORKING
+# mutation{
+#   createComplete(
+#     order_total: 4000,
+#     order_id: "ckfh8ypjv35ul0999rqnpgw2m",
+#   ){
+#   	confirmation_code
+#     order_total
+#   }
+# }
+
 # mutation{
 #   createProduct(
 #     name: "Apple",
@@ -118,3 +121,4 @@
 #     callback
 #   }
 # }
+
