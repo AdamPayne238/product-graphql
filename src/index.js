@@ -1,4 +1,3 @@
-// require('dotenv').config()
 
 const server = require('./server')
 const options = { port: process.env.PORT || 4000 }

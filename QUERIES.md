@@ -1,12 +1,11 @@
-#WORKING
+
 # query{
 #   info
 # }
 
-#WORKING
 # query{
 #   order(
-#     id: "ckfen45eqlhyv0a26hwsw1ayb"
+#     id: "ckfg8b7jiqez80a26n3e6lp2k"
 #   ){
 #     customer_name
 #     customer_email
@@ -34,7 +33,6 @@
 #   }
 # }
 
-#WORKING
 # query{
 #   products{
 #     id
@@ -47,5 +45,54 @@
 #     category
 #     pushed_product
 #     callback
+#   }
+# }
+
+# query{
+#   product(id: "ckferfgpvtam50999f0r7yj3a")
+#   {
+#     name
+#     code
+#     product_type
+#     cost
+#     description
+#     pushed_product
+#     callback
+#     category
+#     inventory_on_hand
+#   }
+# }
+
+# query{
+#   order(
+#     id: "ckfh8ypjv35ul0999rqnpgw2m"
+#   ){
+#     customer_name
+#     customer_email
+#     customer_phone{
+#       number
+#       type
+#       contact
+#     }
+#     shipping_address{
+#       street
+#       city
+#       state
+#       zipcode
+#     }
+#     billing_address{
+#       street
+#       city
+#       state
+#       zipcode
+#     }
+#     purchase_products{
+#       code
+#       quantity
+#     }
+#   	order_confirmation{
+#       confirmation_code
+#       order_total
+#     }
 #   }
 # }
