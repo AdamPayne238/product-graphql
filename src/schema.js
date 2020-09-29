@@ -30,7 +30,7 @@ type Order {
 
 type Phone {
     id: ID!
-    number: Int!
+    number: String!
     type: String!
     contact: Boolean!
     order_id: Order!
@@ -63,7 +63,7 @@ type Purchase {
 
 type Complete {
     confirmation_code: ID!
-    order_total: Int!
+    order_total: Float!
     order_id: Order!
 }
 
@@ -96,7 +96,7 @@ type Mutation {
     ): Order!
 
     createPhone(
-        number: Int!
+        number: String!
         type: String!
         contact: Boolean!
         order_id: String!
@@ -125,7 +125,7 @@ type Mutation {
     ): Purchase!
 
     createComplete(
-        order_total: Int!
+        order_total: Float!
         order_id: String!
     ): Complete!
 

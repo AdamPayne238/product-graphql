@@ -320,7 +320,7 @@ input BillingWhereUniqueInput {
 
 type Complete {
   confirmation_code: ID!
-  order_total: Int!
+  order_total: Float!
   order_id: Order!
 }
 
@@ -332,7 +332,7 @@ type CompleteConnection {
 
 input CompleteCreateInput {
   confirmation_code: ID
-  order_total: Int!
+  order_total: Float!
   order_id: OrderCreateOneWithoutOrder_confirmationInput!
 }
 
@@ -343,7 +343,7 @@ input CompleteCreateManyWithoutOrder_idInput {
 
 input CompleteCreateWithoutOrder_idInput {
   confirmation_code: ID
-  order_total: Int!
+  order_total: Float!
 }
 
 type CompleteEdge {
@@ -360,7 +360,7 @@ enum CompleteOrderByInput {
 
 type CompletePreviousValues {
   confirmation_code: ID!
-  order_total: Int!
+  order_total: Float!
 }
 
 input CompleteScalarWhereInput {
@@ -378,14 +378,14 @@ input CompleteScalarWhereInput {
   confirmation_code_not_starts_with: ID
   confirmation_code_ends_with: ID
   confirmation_code_not_ends_with: ID
-  order_total: Int
-  order_total_not: Int
-  order_total_in: [Int!]
-  order_total_not_in: [Int!]
-  order_total_lt: Int
-  order_total_lte: Int
-  order_total_gt: Int
-  order_total_gte: Int
+  order_total: Float
+  order_total_not: Float
+  order_total_in: [Float!]
+  order_total_not_in: [Float!]
+  order_total_lt: Float
+  order_total_lte: Float
+  order_total_gt: Float
+  order_total_gte: Float
   AND: [CompleteScalarWhereInput!]
   OR: [CompleteScalarWhereInput!]
   NOT: [CompleteScalarWhereInput!]
@@ -410,16 +410,16 @@ input CompleteSubscriptionWhereInput {
 }
 
 input CompleteUpdateInput {
-  order_total: Int
+  order_total: Float
   order_id: OrderUpdateOneRequiredWithoutOrder_confirmationInput
 }
 
 input CompleteUpdateManyDataInput {
-  order_total: Int
+  order_total: Float
 }
 
 input CompleteUpdateManyMutationInput {
-  order_total: Int
+  order_total: Float
 }
 
 input CompleteUpdateManyWithoutOrder_idInput {
@@ -440,7 +440,7 @@ input CompleteUpdateManyWithWhereNestedInput {
 }
 
 input CompleteUpdateWithoutOrder_idDataInput {
-  order_total: Int
+  order_total: Float
 }
 
 input CompleteUpdateWithWhereUniqueWithoutOrder_idInput {
@@ -469,14 +469,14 @@ input CompleteWhereInput {
   confirmation_code_not_starts_with: ID
   confirmation_code_ends_with: ID
   confirmation_code_not_ends_with: ID
-  order_total: Int
-  order_total_not: Int
-  order_total_in: [Int!]
-  order_total_not_in: [Int!]
-  order_total_lt: Int
-  order_total_lte: Int
-  order_total_gt: Int
-  order_total_gte: Int
+  order_total: Float
+  order_total_not: Float
+  order_total_in: [Float!]
+  order_total_not_in: [Float!]
+  order_total_lt: Float
+  order_total_lte: Float
+  order_total_gt: Float
+  order_total_gte: Float
   order_id: OrderWhereInput
   AND: [CompleteWhereInput!]
   OR: [CompleteWhereInput!]
@@ -881,7 +881,7 @@ type PageInfo {
 
 type Phone {
   id: ID!
-  number: Int!
+  number: String!
   type: String!
   contact: Boolean!
   order_id: Order!
@@ -895,7 +895,7 @@ type PhoneConnection {
 
 input PhoneCreateInput {
   id: ID
-  number: Int!
+  number: String!
   type: String!
   contact: Boolean!
   order_id: OrderCreateOneWithoutCustomer_phoneInput!
@@ -908,7 +908,7 @@ input PhoneCreateManyWithoutOrder_idInput {
 
 input PhoneCreateWithoutOrder_idInput {
   id: ID
-  number: Int!
+  number: String!
   type: String!
   contact: Boolean!
 }
@@ -931,7 +931,7 @@ enum PhoneOrderByInput {
 
 type PhonePreviousValues {
   id: ID!
-  number: Int!
+  number: String!
   type: String!
   contact: Boolean!
 }
@@ -951,14 +951,20 @@ input PhoneScalarWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  number: Int
-  number_not: Int
-  number_in: [Int!]
-  number_not_in: [Int!]
-  number_lt: Int
-  number_lte: Int
-  number_gt: Int
-  number_gte: Int
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
   type: String
   type_not: String
   type_in: [String!]
@@ -999,20 +1005,20 @@ input PhoneSubscriptionWhereInput {
 }
 
 input PhoneUpdateInput {
-  number: Int
+  number: String
   type: String
   contact: Boolean
   order_id: OrderUpdateOneRequiredWithoutCustomer_phoneInput
 }
 
 input PhoneUpdateManyDataInput {
-  number: Int
+  number: String
   type: String
   contact: Boolean
 }
 
 input PhoneUpdateManyMutationInput {
-  number: Int
+  number: String
   type: String
   contact: Boolean
 }
@@ -1035,7 +1041,7 @@ input PhoneUpdateManyWithWhereNestedInput {
 }
 
 input PhoneUpdateWithoutOrder_idDataInput {
-  number: Int
+  number: String
   type: String
   contact: Boolean
 }
@@ -1066,14 +1072,20 @@ input PhoneWhereInput {
   id_not_starts_with: ID
   id_ends_with: ID
   id_not_ends_with: ID
-  number: Int
-  number_not: Int
-  number_in: [Int!]
-  number_not_in: [Int!]
-  number_lt: Int
-  number_lte: Int
-  number_gt: Int
-  number_gte: Int
+  number: String
+  number_not: String
+  number_in: [String!]
+  number_not_in: [String!]
+  number_lt: String
+  number_lte: String
+  number_gt: String
+  number_gte: String
+  number_contains: String
+  number_not_contains: String
+  number_starts_with: String
+  number_not_starts_with: String
+  number_ends_with: String
+  number_not_ends_with: String
   type: String
   type_not: String
   type_in: [String!]
