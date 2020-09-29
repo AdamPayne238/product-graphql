@@ -24,7 +24,7 @@ type Order {
 
 type Phone {
     id: ID! @id
-    number: Int!
+    number: String!
     type: String!
     contact: Boolean!
     order_id: Order!
@@ -57,6 +57,6 @@ type Purchase {
 
 type Complete {
     confirmation_code: ID! @id
-    order_total: Int!
+    order_total: Float!
     order_id: Order!
 }
